@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOCSHARE - Share and Review Your Academic Contributions</title>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="upload.css">
+</head>
+<body>
+
+   <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="image-removebg-preview.png" alt="DOCSHARE Logo" class="logo-image" width="200px">
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="browse.html">Browse</a>
+      <a href="upload.html" class="active">Upload</a>
+      <a href="about.html">About</a>
+    </nav>
+    <button class="btn-login">Login</button>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="page-container">
+    <div class="split-layout">
+      
+      <!-- Left Side: Hero Section -->
+      <section class="hero-section">
+        <h1 class="hero-title">
+          <span class="underline">Share and</span><br>
+          <span class="underline">Review</span><br>
+          <span class="underline">Your</span><br>
+          <span class="underline">Academic</span><br>
+          <span class="underline">Contributions</span>
+        </h1>
+      </section>
+
+      <!-- Right Side: Upload Form Section -->
+      <section class="upload-section">
+        <form class="upload-form">
+          
+          <!-- Drag and Drop Box -->
+          <div class="drop-zone" id="drop-zone">
+            <i class="fa-solid fa-cloud-arrow-up drop-icon"></i>
+            <span class="drop-title">Drag and Drop</span>
+            <span class="drop-subtitle">Your File</span>
+            <input type="file" id="file-input" hidden>
+          </div>
+
+          <!-- Form Fields Container -->
+          <div class="form-fields">
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" placeholder="Subject Name or Subject code">
+            </div>
+
+            <div class="form-group">
+              <label for="file-type">File Type</label>
+              <input type="text" id="file-type" placeholder="File Type">
+            </div>
+
+            <div class="form-group">
+              <label for="author">Author</label>
+              <input type="text" id="author" placeholder="Author">
+            </div>
+
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" id="description" placeholder="Resource Description">
+            </div>
+
+          </div>
+
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <i class="fa-regular fa-file-lines"></i>
+      <span>DOCSHARE</span>
+    </div>
+
+    <div class="footer-copyright">
+      &copy; 2026 DOCSHARE. All rights reserved
+    </div>
+
+    <div class="footer-socials">
+      <span>Follow us on</span>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
