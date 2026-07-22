@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOCSHARE - Browse Academic Resources</title>
+  <!-- Lucide Icons for crisp vector icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="browse.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="image-removebg-preview.png" alt="DOCSHARE Logo" class="logo-image" width="200px" >
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="browse.html" class="active">Browse</a>
+      <a href="upload.html">Upload</a>
+      <a href="about.html">About</a>
+    </nav>
+    <button class="btn-login">Login</button>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="container">
+    
+    <!-- Page Header -->
+    <h1 class="page-title">Browse Academic Resources</h1>
+
+    <!-- Two-Column Layout -->
+    <div class="content-wrapper">
+      
+      <!-- Filters Sidebar -->
+      <aside class="sidebar">
+        <h3>Filters</h3>
+
+        <div class="filter-group">
+          <label for="search">Search</label>
+          <input type="text" id="search" placeholder="Search notes...">
+        </div>
+
+        <div class="filter-group">
+          <label for="subject">Subject</label>
+          <select id="subject">
+            <option value="">All Subjects</option>
+            <option value="ict">ICT 1209</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="file-type">File Type</label>
+          <select id="file-type">
+            <option value="">All Types</option>
+            <option value="pdf">PDF</option>
+            <option value="doc">DOCX</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="sort-by">Sort By</label>
+          <select id="sort-by">
+            <option value="latest">Latest</option>
+            <option value="popular">Most Popular</option>
+          </select>
+        </div>
+
+        <button class="btn-apply">Apply Filters</button>
+      </aside>
+
+      <!-- Main Resources / Card Section -->
+      <section class="results-section">
+        <h2 class="results-count">Showing 30 Results</h2>
+
+        <div class="card-list">
+          
+          <!-- Resource Card 1 -->
+          <div class="card">
+            <div class="card-info">
+              <i data-lucide="file-text" class="card-icon"></i>
+              <span class="card-title">ICT 1209 Web Technologies - PHP</span>
+            </div>
+            <button class="btn-download" aria-label="Download">
+              <i data-lucide="download"></i>
+            </button>
+          </div>
+
+          <!-- Resource Card 2 -->
+          <div class="card">
+            <div class="card-info">
+              <i data-lucide="file-text" class="card-icon"></i>
+              <span class="card-title">ICT 1209 Web Technologies - HTML</span>
+            </div>
+            <button class="btn-download" aria-label="Download">
+              <i data-lucide="download"></i>
+            </button>
+          </div>
+
+          <!-- Resource Card 3 -->
+          <div class="card">
+            <div class="card-info">
+              <i data-lucide="file-text" class="card-icon"></i>
+              <span class="card-title">ICT 1209 Web Technologies - C++</span>
+            </div>
+            <button class="btn-download" aria-label="Download">
+              <i data-lucide="download"></i>
+            </button>
+          </div>
+
+          <!-- Resource Card 4 (Active / Selected state as shown in mockup) -->
+          <div class="card active-card">
+            <div class="card-info">
+              <i data-lucide="file-text" class="card-icon"></i>
+              <span class="card-title">ICT 1209 Web Technologies - PHYTHON</span>
+            </div>
+            <button class="btn-download" aria-label="Download">
+              <i data-lucide="download"></i>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Paging Section -->
+        <div class="pagination">
+          <button class="page-btn page-nav" aria-label="Previous Page">&lt;</button>
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn">4</button>
+          <span class="page-dots">...</span>
+          <button class="page-btn">10</button>
+          <button class="page-btn page-nav" aria-label="Next Page">&gt;</button>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Script to load icons -->
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
