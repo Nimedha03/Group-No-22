@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DOCSHARE - Browse Academic Resources</title>
-  <!-- Lucide Icons for crisp vector icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="browse.css">
+  <link rel="stylesheet" href="home.css">
 </head>
 <body>
 
@@ -15,13 +16,18 @@
     <div class="logo">
       <img src="image-removebg-preview.png" alt="DOCSHARE Logo" class="logo-image" width="200px" >
     </div>
-    <nav class="nav-links">
+    <nav class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
       <a href="browse.html" class="active">Browse</a>
       <a href="upload.html">Upload</a>
       <a href="about.html">About</a>
     </nav>
-    <button class="btn-login">Login</button>
+    <div class="nav-right">
+      <button class="btn-login" id="openModalBtn">Login</button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
   <!-- Main Content Container -->
@@ -137,11 +143,78 @@
       </section>
 
     </div>
+    
   </main>
-
+  
   <!-- Script to load icons -->
   <script>
     lucide.createIcons();
   </script>
+  <!-- Footer Section --> <br> <br>
+  <footer class="footer">
+    <div class="footer-logo">
+      <i class="fa-regular fa-file-lines"></i>
+      <span>DOCSHARE</span>
+    </div>
+
+    <div class="footer-copyright">
+      &copy; 2026 DOCSHARE. All rights reserved
+    </div>
+
+    <div class="footer-socials">
+      <span>Follow us on</span>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="X (Twitter)"><i class="fa-solid fa-x"></i></a>
+        <a href="#" aria-label="Website"><i class="fa-solid fa-globe"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+  <!--Login Popup-->
+<form action="#" method="#">
+  <div class="modalOverlay" id="modalOverlay">
+    <div class="modacontainer">
+      <button type="button" class="closebtn" id="closeModalBtn">&times;</button>
+      <div class="modalleft">
+
+        <div id="loginFormContainer" class="formcontainer active">
+          <h2>WELCOME TO DOCSHARE</h2>
+          <div class="formgroup">
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email" placeholder="Email" required> 
+          </div>
+          <div class="formgroup">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="password" required>
+          </div>
+          <button type="submit" name="login" class="submitbtn">Log In</button>
+
+          <p style="margin-top: 15px; font-size: 14px; text-align: center;">Not on Docshare?  <a href="" id="switchToSignUp" style="color: black;font-weight: bold;text-decoration: none;">Sign up</a>
+          </p>
+        </div>
+</form>
+        <form action="#" method="post">
+          <div id="signupFormContainer" class="formcontainer">
+            <h2>Create Account</h2>
+            <div class="formgroup"><label for="signupName">Full name</label>
+            <input type="text" id="signupName" name="signupName" placeholder="Full Name"required>
+          </div>
+          <div class="formgroup">
+            <label for="signupEmail">Email</label>
+            <input type="email" id="signupEmail" name="signupEmail" placeholder="Email" required>
+          </div>
+          <div class="formgroup">
+            <label for="signPassword">Password</label>
+            <input type="password" id="signPassword" name="signPassword" placeholder="Create Password" required>
+          </div>
+          <button type="submit" name="signuPassword" class="submitbtn" style="background-color: black;">Sign up</button>
+
+          <p style="margin-top: 15px; font-size: 14px;text-align: center;">
+            Already have an Account?  <a href="#" id="switchToLogIn" style="color: black;font-weight: bold;text-decoration: none;">Log in</a>
+          </p>
+          </div>
+        </form>
+<script src="login.js"></script>
 </body>
 </html>
