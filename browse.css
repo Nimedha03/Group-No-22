@@ -147,6 +147,44 @@ body {
   background-size: 14px;
 }
 
+/* ---------------- Advanced Search (collapsible) ---------------- */
+.adv-search {
+  margin-bottom: 1.2rem;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 0.7rem 0.9rem;
+}
+
+.adv-search[open] {
+  padding-bottom: 1rem;
+}
+
+.adv-search summary {
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--active-blue);
+  list-style: none;
+}
+
+.adv-search summary::-webkit-details-marker {
+  display: none;
+}
+
+.adv-search summary::before {
+  content: "▸ ";
+  font-size: 0.7rem;
+}
+
+.adv-search[open] summary::before {
+  content: "▾ ";
+}
+
+.adv-search .filter-group {
+  margin-top: 0.9rem;
+  margin-bottom: 0;
+}
+
 .btn-apply {
   background-color: var(--button-black);
   color: white;
@@ -209,7 +247,14 @@ body {
   font-size: 0.95rem;
 }
 
-.btn-download {
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-download,
+.btn-bookmark {
   background-color: white;
   border: none;
   width: 38px;
@@ -220,17 +265,29 @@ body {
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: transform 0.1s;
+  transition: transform 0.1s, background-color 0.2s;
+  text-decoration: none;
 }
 
-.btn-download:hover {
+.btn-download:hover,
+.btn-bookmark:hover {
   transform: translateY(-1px);
 }
 
-.btn-download svg {
+.btn-download svg,
+.btn-bookmark svg {
   width: 18px;
   height: 18px;
   stroke: #333;
+}
+
+.btn-bookmark.active {
+  background-color: #FFC94A;
+}
+
+.btn-bookmark.active svg {
+  stroke: #1E1E1E;
+  fill: #1E1E1E;
 }
 
 /* ---------------- Pagination Section ---------------- */
