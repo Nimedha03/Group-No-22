@@ -153,7 +153,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </footer>
 
   <script>
-    // Show the chosen file name and allow clicking the drop-zone to open the file picker
     const dropZone = document.getElementById('drop-zone');
     const fileInput = document.getElementById('file-input');
     const dropLabel = document.getElementById('drop-label');
