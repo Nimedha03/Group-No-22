@@ -16,7 +16,7 @@ if (!$resource) {
     exit();
 }
 
-// Track popularity
+
 mysqli_query($conn, "UPDATE resources SET downloads = downloads + 1 WHERE id = $id");
 
 $file_path = __DIR__ . '/' . $resource['file_path'];
@@ -29,7 +29,7 @@ if (file_exists($file_path)) {
     readfile($file_path);
     exit();
 } else {
-    // Sample/demo rows may not have a real file on disk yet
+    
     header("Location: browse.php?error=missing_file");
     exit();
 }
