@@ -1,5 +1,5 @@
 <?php
-// Expects $active to be set by the including page: 'home' | 'browse' | 'upload' | 'features' | 'bookmarks' | 'reminders' | 'about' | 'contact'
+
 $active = $active ?? '';
 $nav_due_reminders = (function_exists('is_logged_in') && is_logged_in() && function_exists('ds_count_due_reminders') && isset($conn))
     ? ds_count_due_reminders($conn, $_SESSION['user_id'])
