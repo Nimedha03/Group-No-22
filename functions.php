@@ -12,14 +12,13 @@ function sanitize($conn, $data) {
 }
 
 if (!function_exists('is_logged_in')) {
-/** Is someone currently logged in? */
+
 function is_logged_in() {
     return isset($_SESSION['user_id']);
 }
 }
 
 if (!function_exists('require_login')) {
-/** Send anonymous visitors to the login page, remembering where they were headed. */
 function require_login() {
     if (!is_logged_in()) {
         $_SESSION['login_redirect'] = $_SERVER['REQUEST_URI'] ?? 'index.php';
@@ -36,10 +35,8 @@ function current_user_name() {
 }
 
 if (!function_exists('upload_resource_file')) {
-/**
- * Handle a single uploaded file: validate type/size and move it into /uploads.
- * Returns ['success' => bool, 'path' => string|null, 'message' => string|null]
- */
+
+
 function upload_resource_file($file) {
     $target_dir = __DIR__ . "/uploads/";
     if (!is_dir($target_dir)) {
@@ -71,7 +68,6 @@ function upload_resource_file($file) {
 }
 
 if (!function_exists('ds_get_resources')) {
-/** Fetch a filtered, sorted, paginated list of resources. $author/$date_from/$date_to power Advanced Search. */
 function ds_get_resources($conn, $search = '', $subject = '', $file_type = '', $sort = 'latest', $limit = 10, $offset = 0, $author = '', $date_from = '', $date_to = '') {
     $search    = sanitize($conn, $search);
     $subject   = sanitize($conn, $subject);
@@ -104,7 +100,7 @@ function ds_get_resources($conn, $search = '', $subject = '', $file_type = '', $
 }
 
 if (!function_exists('ds_count_resources')) {
-/** Count how many resources match the current filters (for pagination). Same Advanced Search filters as ds_get_resources. */
+
 function ds_count_resources($conn, $search = '', $subject = '', $file_type = '', $author = '', $date_from = '', $date_to = '') {
     $search    = sanitize($conn, $search);
     $subject   = sanitize($conn, $subject);
@@ -130,7 +126,7 @@ function ds_count_resources($conn, $search = '', $subject = '', $file_type = '',
 /* ---------------- Bookmarks ---------------- */
 
 if (!function_exists('ds_toggle_bookmark')) {
-/** Add or remove a bookmark for this user/resource pair. Returns true if now bookmarked, false if removed. */
+*/
 function ds_toggle_bookmark($conn, $user_id, $resource_id) {
     $user_id     = (int) $user_id;
     $resource_id = (int) $resource_id;
@@ -146,7 +142,7 @@ function ds_toggle_bookmark($conn, $user_id, $resource_id) {
 }
 
 if (!function_exists('ds_get_bookmarked_ids')) {
-/** resource_id => true map for the current user, so a resource list can flag which cards are bookmarked. */
+
 function ds_get_bookmarked_ids($conn, $user_id) {
     $user_id = (int) $user_id;
     $ids = [];
@@ -161,7 +157,7 @@ function ds_get_bookmarked_ids($conn, $user_id) {
 }
 
 if (!function_exists('ds_get_bookmarked_resources')) {
-/** Full resource rows a user has bookmarked, most recently bookmarked first. */
+
 function ds_get_bookmarked_resources($conn, $user_id) {
     $user_id = (int) $user_id;
     $sql = "SELECT r.*, b.created_at AS bookmarked_at
@@ -183,7 +179,7 @@ function ds_get_bookmarked_resources($conn, $user_id) {
 /* ---------------- Reminders ---------------- */
 
 if (!function_exists('ds_add_reminder')) {
-/** $remind_at must already be a MySQL DATETIME string ('Y-m-d H:i:s'). */
+
 function ds_add_reminder($conn, $user_id, $resource_id, $title, $note, $remind_at) {
     $user_id      = (int) $user_id;
     $resource_sql = $resource_id ? (int) $resource_id : 'NULL';
@@ -197,7 +193,7 @@ function ds_add_reminder($conn, $user_id, $resource_id, $title, $note, $remind_a
 }
 
 if (!function_exists('ds_get_reminders')) {
-/** A user's reminders, unfinished-and-soonest first, with the linked resource title if any. */
+
 function ds_get_reminders($conn, $user_id) {
     $user_id = (int) $user_id;
     $sql = "SELECT rem.*, res.title AS resource_title
@@ -233,7 +229,7 @@ function ds_toggle_reminder_done($conn, $user_id, $reminder_id) {
 }
 
 if (!function_exists('ds_count_due_reminders')) {
-/** Not-yet-done reminders whose time has already arrived — drives the little nav badge. */
+
 function ds_count_due_reminders($conn, $user_id) {
     $user_id = (int) $user_id;
     $result = mysqli_query($conn, "SELECT COUNT(*) AS total FROM reminders WHERE user_id = $user_id AND is_done = 0 AND remind_at <= NOW()");
@@ -243,7 +239,7 @@ function ds_count_due_reminders($conn, $user_id) {
 }
 
 if (!function_exists('ds_get_all_subjects')) {
-/** Get every distinct subject currently in the resources table (for the filter dropdown). */
+
 function ds_get_all_subjects($conn) {
     $subjects = [];
     $result = mysqli_query($conn, "SELECT DISTINCT subject FROM resources WHERE subject IS NOT NULL AND subject != '' ORDER BY subject");
@@ -257,7 +253,7 @@ function ds_get_all_subjects($conn) {
 }
 
 if (!function_exists('ds_icon_for_type')) {
-/** Pick a Lucide icon name based on file extension. */
+
 function ds_icon_for_type($file_type) {
     $map = [
         'pdf'  => 'file-text',
