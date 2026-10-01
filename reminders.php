@@ -10,7 +10,7 @@ $success = false;
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'add') {
     $title       = trim($_POST['title'] ?? '');
     $note        = trim($_POST['note'] ?? '');
-    $remind_at   = trim($_POST['remind_at'] ?? ''); // comes in as 'Y-m-dTH:i' from datetime-local
+    $remind_at   = trim($_POST['remind_at'] ?? ''); 
     $resource_id = $_POST['resource_id'] ?? '';
 
     if ($title === '')     $errors[] = "Title is required.";
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'add')
     }
 }
 
-// Toggle done / delete via simple GET links (consistent with download.php's style in this project)
+
 if (isset($_GET['toggle'])) {
     ds_toggle_reminder_done($conn, $user_id, (int) $_GET['toggle']);
     header("Location: reminders.php");
