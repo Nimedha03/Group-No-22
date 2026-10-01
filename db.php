@@ -1,8 +1,5 @@
 <?php
-// ---------------------------------------------------------
-// Database connection (XAMPP default MySQL credentials)
-// Edit these if your MySQL setup is different.
-// ---------------------------------------------------------
+
 $db_host = "localhost";
 $db_user = "root";
 $db_pass = "";
