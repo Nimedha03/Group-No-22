@@ -1,5 +1,3 @@
--- DOCSHARE Database Schema
--- Import this in phpMyAdmin (or run via MySQL CLI) BEFORE using the site.
 
 CREATE DATABASE IF NOT EXISTS docshare_db;
 USE docshare_db;
