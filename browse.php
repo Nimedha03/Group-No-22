@@ -27,7 +27,6 @@ function qs($overrides = []) {
     return htmlspecialchars('browse.php?' . http_build_query($params));
 }
 
-// Unescaped version (used only inside a redirect= query param, never printed raw into HTML text)
 function raw_qs($overrides = []) {
     $params = array_merge($_GET, $overrides);
     return 'browse.php?' . http_build_query($params);
